@@ -17,10 +17,13 @@ int main()
         }
         if (c == ' ' || c == '\n' || c == '\t') {
             state = OUT;
+            printf("\n");
         } else if (state == OUT) {
             state = IN;
-            ++nw;
+            putchar(c);
+        } else {
+            putchar(c);
         }
     }
-    printf("%d %d %d\n",nl, nw, nc);
+/*    printf("%d %d %d\n",nl, nw, nc); */
 }
