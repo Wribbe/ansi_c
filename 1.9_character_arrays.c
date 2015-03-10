@@ -20,7 +20,8 @@ int main()
         }
     }
     if (max > 0) {
-        printf("%s", longest);
+        printf("%s\n", longest);
+        printf("Longest line: %d\n",max);
     }
     return 0;
 }
@@ -29,14 +30,22 @@ int getline(char s[], int lim)
 {
     int c, i;
 
+    /* Ex 1-16, make main count arbitrary line length */
+
     for (i=0; i<lim-1 && (c=getchar()) != EOF && c!='\n'; i++) {
         s[i] = c;
-    }
+    } 
     if (c == '\n') {
         s[i] = c;
         i++;
-    }
+    }/* don't put more chars in the array */
     s[i] = '\0';
+
+    /* continue counting */
+    while((c=getchar()) != EOF && c!='\n') {
+        i++;
+    }
+
     return i;
 }
 
