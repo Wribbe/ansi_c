@@ -13,10 +13,14 @@ int main()
     char longest[MAXLINE]; /* longest line saved here */
 
     max = 0;
+    /* Ex 1-17, print all lines > 80 */
     while ((len = getline(line, MAXLINE)) > 0) {
         if (len > max) {
             max = len;
             copy(longest, line);
+        }
+        if (len > 80) {
+            printf("%s",line);
         }
     }
     if (max > 0) {
@@ -42,8 +46,10 @@ int getline(char s[], int lim)
     s[i] = '\0';
 
     /* continue counting */
-    while((c=getchar()) != EOF && c!='\n') {
-        i++;
+    if( c != EOF && c!='\n' ) {
+        while((c=getchar()) != EOF && c!='\n') {
+            i++;
+        }
     }
 
     return i;
