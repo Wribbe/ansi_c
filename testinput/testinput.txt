@@ -6,11 +6,19 @@ to spaces.. ) but anyhow..
 
 
 some empty lines.
+some trailing tabs								
 
 more text~, a tilde.. whop whop.
 some more words that we could count..
 aaaaaaaaa bbbbbbbbbbb ccccccccccccc
 some longer string so we have those represented.
+a
+a
+a
+b
+b
+b
+
 
 aaaaaaaaaaaaaaa cccccccccccccccc
 
