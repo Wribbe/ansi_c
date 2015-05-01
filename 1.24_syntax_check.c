@@ -59,6 +59,53 @@ int check_mirror(int a, int b)
     printf("result failed for %c %c\n",a,b);
     return 0;
 }
+int ignore_comments(int c)
+{
+    if (c == '/') {
+        int d = getchar();
+        if (d == '*') {
+            c = getchar();
+            d = getchar();
+            while(c != '*' || d != '/') {
+                c = d;
+                d = getchar();
+            }
+            return getchar();
+        } else {
+            return d;
+        }
+
+    } else {
+        return c;
+    }
+}
+
+int ignore_quotes(int c)
+{
+    int d;
+    if (c == '\'' || c == '"') {
+        while((d = getchar()) != EOF) {
+            if (d == '\\') {
+                getchar();
+                continue;
+            } else if (d == c) {
+                break;
+            }
+        }
+    }
+    if (d == EOF) {
+        return EOF;
+    }
+    return c;
+}
+
+int get_relevant_char(int c)
+{
+    int non_comment_char;
+    non_comment_char = ignore_comments(c);
+    return ignore_quotes(non_comment_char);
+}
+
 int main(void)
 {
     root = node(' ');
