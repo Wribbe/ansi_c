@@ -6,16 +6,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 typedef struct Node
 {
     int c;
     struct Node* next;
 } Node;
 
-//Node* push(Node*, Node*)
-//{
-//
-//}
+Node* root;
 
 Node* node(int c)
 {
@@ -27,8 +25,20 @@ Node* node(int c)
     return pointer;
 }
 
+void push(int c)
+{
+    Node* temp = node(c);
+    temp->next=root;
+    root=temp;
+}
+
 int main(void)
 {
-    Node* root = node('a');
+    root = node('a');
+    root->next = NULL;
+
+    push('b');
+    push('c');
+
     printf("root %c\n",root->c);
 }
