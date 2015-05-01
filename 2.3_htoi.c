@@ -8,13 +8,15 @@
 int htoi(char* string)
 {
     int i;
-    for(i = 0; string[i] != '\0'; i++) {
-        putchar(string[i]);
+    int c;
+    for(i = 0; (c = string[i]) != '\0'; i++) {
+        c = tolower(c);
+        putchar(c);
     }
     return 1;
 }
 
 int main(void)
 {
-    htoi("test");
+    htoi("tesT");
 }
