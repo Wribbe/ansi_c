@@ -32,6 +32,21 @@ void push(int c)
     root=temp;
 }
 
+int pop(void)
+{
+    if (root == NULL) {
+        return 0;
+    }
+
+    Node* temp = root;
+    root = temp->next;
+    int c = temp->c;
+
+    free(temp);
+
+    return c;
+}
+
 int main(void)
 {
     root = node('a');
@@ -40,5 +55,7 @@ int main(void)
     push('b');
     push('c');
 
-    printf("root %c\n",root->c);
+    while(root != NULL) {
+        printf("popped: %c\n",pop());
+    }
 }
