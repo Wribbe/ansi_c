@@ -49,13 +49,18 @@ int pop(void)
 
 int main(void)
 {
-    root = node('a');
+    root = node(' ');
     root->next = NULL;
 
-    push('b');
-    push('c');
+    int c, other_side;
 
-    while(root != NULL) {
-        printf("popped: %c\n",pop());
+    while((c = getchar()) != EOF) {
+        c = get_relevant_char(c);
+        if (c == '{' || c == '(' || c == '[') {
+            push(c);
+        } else if (c == '}' || c == ')' || c == '[') {
+            other_side = pop();
+            check_mirror(other_side, c);
+        }
     }
 }
