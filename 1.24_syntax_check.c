@@ -47,6 +47,18 @@ int pop(void)
     return c;
 }
 
+int check_mirror(int a, int b)
+{
+    if (a == '{' && b == '}') {
+        return 1;
+    } else if (a == '(' && b == ')') {
+        return 1;
+    } else if (a == '[' && b == ']') {
+        return 1;
+    }
+    printf("result failed for %c %c\n",a,b);
+    return 0;
+}
 int main(void)
 {
     root = node(' ');
