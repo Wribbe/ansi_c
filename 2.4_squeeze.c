@@ -18,9 +18,17 @@ void trim(char* string1, char* string2)
     while ((c = string2[i++]) != '\0') {
         chars[floor_char(c)] = 1;
     }
-    for (int i = 0; i < 26; i++) {
-        printf("chars pos %d is %i.\n",i,chars[i]);
+    i = c = 0;
+    int j = 0;
+    while ((c = string1[i++]) != '\0') {
+        if (chars[floor_char(c)]) {
+            continue;
+        } else {
+            string1[j++] = c;
+        }
     }
+    string1[j] = '\0';
+    printf("resulting string: %s\n",string1);
 }
 
 int main(int argc, char* argv[])
