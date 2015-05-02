@@ -6,14 +6,17 @@
 #include <stdio.h>
 #include <ctype.h>
 
+int floor_char(char c)
+{
+    return tolower(c)-'a';
+}
+
 void trim(char* string1, char* string2)
 {
     int chars[26] = { 0 };
     int i,c = 0;
     while ((c = string2[i++]) != '\0') {
-        printf("char: %c\n",c);
-        c = tolower(c)-'a';
-        chars[c] = 1;
+        chars[floor_char(c)] = 1;
     }
     for (int i = 0; i < 26; i++) {
         printf("chars pos %d is %i.\n",i,chars[i]);
