@@ -1,7 +1,7 @@
 #!/bin/sh
 
 executable_dir="executables"
-flags="-std=c99 -pedantic -Werror -Wall"
+flags="-std=c99 -pedantic -Werror -Wall -ggdb"
 
 if [ ! -d "$executable_dir" ]; then
   mkdir "$executable_dir"
