@@ -11,6 +11,11 @@ int setbits(int x,int p,int n,int y)
     return ybits;
 }
 
+int stoi(char* string)
+{
+    return (int) strtol(string, NULL, 10);
+}
+
 int main(int argc, char* argv[])
 {
     if (argc < 3) {
