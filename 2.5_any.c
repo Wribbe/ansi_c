@@ -7,10 +7,21 @@
 
 #define unused(x) (void)x
 
-void any(char* string1, char* string2)
+int any(char* string1, char* string2)
 {
     int chars['~'] = {0};
-    unused(chars);
+    int c, i = 0;
+    while ((c = string2[i++]) != '\0') {
+        chars[c] = 1;
+    }
+    c = i = 0;
+    while ((c = string1[i]) != '\0') {
+        if (chars[c]) {
+            return i;
+        }
+        i++;
+    }
+    return -1;
 }
 
 int main(int argc, char *argv[])
@@ -20,5 +31,10 @@ int main(int argc, char *argv[])
         EXIT_FAILURE;
     }
 
-    any(argv[1], argv[2]);
+    int result = any(argv[1], argv[2]);
+    if (result >= 0) {
+        printf("first char from string2 in string1 is \'%c\' at position: %d\n",argv[1][result], result+1);
+    } else {
+        printf("None of the chars from string2 were present in string1.\n");
+    }
 }
