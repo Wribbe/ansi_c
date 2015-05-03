@@ -5,10 +5,20 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#define unused(x) (void)x
+
+void any(char* string1, char* string2)
+{
+    int chars['~'] = {0};
+    unused(chars);
+}
+
 int main(int argc, char *argv[])
 {
     if (argc < 3) {
         printf("Supply at least 2 parameters.\n");
         EXIT_FAILURE;
     }
+
+    any(argv[1], argv[2]);
 }
