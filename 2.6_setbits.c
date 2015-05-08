@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     int num_arguments = 4;
     if (argc < 1+num_arguments) {
         printf("[ERROR] Provide at least %d arguments.\n",num_arguments);
-        EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
     int result = setbits(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]), stoi(argv[4]));
     printf("result: %d\n", result);
