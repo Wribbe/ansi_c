@@ -20,3 +20,24 @@ int stoi(char* string)
 int main (int argc, char* argv[]) {
     printf("%d\n",get_bits(stoi(argv[1])));
 }
+
+/*
+ 5 4 3 2 1 0
+ -----------
+ 0 0 0 0 0 0
+
+ xor?
+
+ 1 0 1 1 0 0 with n=3 and p=1
+
+ -->
+
+ 1 1 0 0 0 0
+
+ --
+
+ 1 0 1 1 0 0
+ 0 1 1 1 0 0 xor
+ ----------------
+ 1 1 0 0 0 0
+ */
