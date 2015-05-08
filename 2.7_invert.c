@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-int get_bits(int num) {
+unsigned int get_bits(int num) {
     if (num == 1 || num == 0 ) {
         return num;
     }
