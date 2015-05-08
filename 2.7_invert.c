@@ -16,8 +16,17 @@ int stoi(char* string)
     return (int) strtol(string, NULL, 10);
 }
 
+int invert(int x,int p,int n) {
+    int shift = (p+1-n);
+    if (shift < 0) {
+        shift = 0;
+    }
+    int mask = ~((~0) << n) << shift;
+    return mask;
+}
+
 int main (int argc, char* argv[]) {
-    printf("%d\n",get_bits(stoi(argv[1])));
+    printf("%u\n",get_bits(invert(256,1,3)));
 }
 
 /*
