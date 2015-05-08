@@ -18,17 +18,29 @@ int stoi(char* string)
     return (int) strtol(string, NULL, 10);
 }
 
-int invert(int x,int p,int n) {
-    int shift = (p+1-n);
-    if (shift < 0) {
-        shift = 0;
-    }
-    int mask = ~((~0) << n) << shift;
-    return mask;
+int get_mask(int p,int n) {
+    return  ~((~0) << n) << p;
 }
 
 int main (int argc, char* argv[]) {
-    printf("%u\n",get_bits(invert(256,1,3)));
+
+    int min_args = 3;
+    if (argc < min_args+1) {
+        printf("need at least %d arguments.\n",min_args);
+        exit(EXIT_FAILURE);
+    }
+
+    int x, p, n;
+
+    x = stoi(argv[1]);
+    p = stoi(argv[2]);
+    n = stoi(argv[3]);
+
+    printf("starting with %d -> %d\n",x,get_bits(x));
+    int mask = get_mask(n, p);
+    printf("generating mask %d\n",get_bits(mask));
+    int masked_x = x ^ mask;
+    printf("x after XOR'ing with the mask: %d\n",get_bits(masked_x));
 }
 
 /*
