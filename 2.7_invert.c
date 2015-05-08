@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define unused(x) (void)x
+
 unsigned int get_bits(int num) {
     if (num == 1 || num == 0 ) {
         return num;
