@@ -16,6 +16,15 @@ int book_bitcount(unsigned x)
     return b;
 }
 
+int own_bitcount(unsigned x)
+{
+    int b;
+    for(b=0; x!=0; x &= (x-1)) {
+        b++;
+    }
+    return b;
+}
+
 unsigned strtoi(char* string)
 {
     return (unsigned) strtoul(string, NULL, 10);
@@ -36,7 +45,9 @@ int main(int argc, char* argv[])
     command = argv[1];
 
     if (strcmp(command,"book") == 0) {
-       result = book_bitcount(number);
+        result = book_bitcount(number);
+    } else if (strcmp(command, "own") == 0) {
+        result = own_bitcount(number);
     } else {
         printf("No such command %s.\n", command);
         exit(EXIT_FAILURE);
