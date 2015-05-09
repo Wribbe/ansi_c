@@ -18,7 +18,7 @@ int book_bitcount(unsigned x)
 
 unsigned strtoi(char* string)
 {
-    return (unsigned) strtol(string, NULL, 10);
+    return (unsigned) strtoul(string, NULL, 10);
 }
 
 int main(int argc, char* argv[])
