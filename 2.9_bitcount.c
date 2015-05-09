@@ -38,16 +38,22 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
-    int result, number = 0;
+    int result, number, iterations = 0;
     char* command = "";
+
 
     number = strtoi(argv[2]);
     command = argv[1];
+    iterations = 0xffff+0xffff;
 
     if (strcmp(command,"book") == 0) {
-        result = book_bitcount(number);
+        while(iterations-- > 0) {
+            result = book_bitcount(number);
+        }
     } else if (strcmp(command, "own") == 0) {
-        result = own_bitcount(number);
+        while(iterations-- > 0) {
+            result = own_bitcount(number);
+        }
     } else {
         printf("No such command %s.\n", command);
         exit(EXIT_FAILURE);
