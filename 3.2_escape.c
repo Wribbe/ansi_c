@@ -6,6 +6,16 @@
 #include <stdio.h>
 #include <string.h>
 
+void printwithfunc(char* string, void func(char*))
+{
+    func(string);
+}
+
+void printme(char* string)
+{
+    printf("ME: %s\n",string);
+}
+
 int main(int argc, char* argv[])
 {
     int num_arguments = 1;
@@ -13,4 +23,5 @@ int main(int argc, char* argv[])
         printf("Need att least %d argmuent.\n", num_arguments);
         exit(EXIT_FAILURE);
     }
+    printwithfunc("this is a test", printme);
 }
