@@ -52,4 +52,5 @@ int main(int argc, char* argv[])
     for (int i=0; i<size; i++) {
         printf("element %d equals: %d\n",i,array[i]);
     }
+    free(array);
 }
