@@ -53,6 +53,28 @@ int binsearch(int x, int v[], int n)
     return -1;
 }
 
+int my_binsearch(int x, int v[], int n)
+{
+    int low, high, mid;
+
+    low = 0;
+    high = n-1;
+    mid = (low+high)/2;
+    while(low <= high && v[mid] != x) {
+        if (x < v[mid]) {
+            high = mid-1;
+        } else {
+            low = mid+1;
+        }
+        mid = (low+high)/2;
+    }
+    if (x == v[mid]) {
+        return mid;
+    } else {
+        return -1;
+    }
+}
+
 int main(int argc, char* argv[])
 {
     int min_args = 2;
@@ -67,7 +89,7 @@ int main(int argc, char* argv[])
     int* array = {0};
     int size = int_array(comma_separated_numbers, &array);
 
-    int result = binsearch(find, array, size);
+    int result = my_binsearch(find, array, size);
 
     if (result == -1) {
         printf("could not find %d\n",find);
