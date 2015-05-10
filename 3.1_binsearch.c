@@ -34,6 +34,25 @@ int int_array(char* string, int** array_address)
     return size;
 }
 
+int binsearch(int x, int v[], int n)
+{
+    int low, high, mid;
+
+    low = 0;
+    high = n-1;
+    while(low <= high) {
+        mid = (low+high)/2;
+        if (x < v[mid]) {
+            high = mid - 1;
+        } else if (x > v[mid]) {
+            low = mid + 1;
+        } else {
+            return mid;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char* argv[])
 {
     int min_args = 2;
@@ -45,12 +64,16 @@ int main(int argc, char* argv[])
     char* comma_separated_numbers = argv[1];
     int find = strtoi(argv[2]);
 
-    unused(find);
     int* array = {0};
     int size = int_array(comma_separated_numbers, &array);
-    printf("size of array is %d\n",size);
-    for (int i=0; i<size; i++) {
-        printf("element %d equals: %d\n",i,array[i]);
+
+    int result = binsearch(find, array, size);
+
+    if (result == -1) {
+        printf("could not find %d\n",find);
+    } else {
+        printf("found %d at position %d.\n",find,result);
     }
+
     free(array);
 }
