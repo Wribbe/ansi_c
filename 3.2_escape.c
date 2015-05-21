@@ -6,7 +6,8 @@
 #include <stdio.h>
 #include <string.h>
 
-void printwithfunc(char* string, void func(char*))
+#include "minunit.h"
+
 {
     func(string);
 }
@@ -18,6 +19,7 @@ void printme(char* string)
 
 int main(int argc, char* argv[])
 {
+    run_tests();
     int num_arguments = 1;
     if (argc <= num_arguments) {
         printf("Need att least %d argmuent.\n", num_arguments);
@@ -25,3 +27,34 @@ int main(int argc, char* argv[])
     }
     printwithfunc("this is a test", printme);
 }
+
+//------------------------------------------------------------------------------
+//--- Tests
+//------------------------------------------------------------------------------
+
+int tests_run = 0;
+
+void run_tests()
+{
+    char* result = all_tests();
+    if (result !=0) {
+        printf("%s\n", result);
+    } else {
+        printf("ALL TESTS PASSED\n");
+    }
+    printf("Tests run: %d\n", tests_run);
+}
+
+static char* test_visible_length()
+{
+    mu_assert("visible_length returned wrong length.", visible_length("1234") == 4);
+    mu_assert("visible_length returned wrong length.", visible_length("12\n5\t8") == 8);
+    return 0;
+}
+
+static char* all_tests()
+{
+    mu_run_test(test_visible_length);
+    return 0;
+}
+
