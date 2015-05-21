@@ -8,7 +8,7 @@
 
 #include "minunit.h"
 
-int visible_length(char* string)
+int num_escapes(char* string)
 {
     int ch, i, len;
     ch = i = len = 0;
@@ -17,9 +17,6 @@ int visible_length(char* string)
         switch(ch) {
             case '\n':
             case '\t':
-                len += 2;
-                break;
-            default:
                 len += 1;
                 break;
         }
@@ -29,7 +26,7 @@ int visible_length(char* string)
 
 void escape(char* from, char** to)
 {
-    char* return_string = malloc(sizeof(char)*visible_length(from));
+    char* return_string = malloc(sizeof(char)*num_escapes(from));
 
     int ch = 0;
     int i = 0;
@@ -81,10 +78,10 @@ void run_tests()
     printf("Tests run: %d\n", tests_run);
 }
 
-static char* test_visible_length()
+static char* test_num_escapes()
 {
-    mu_assert("visible_length returned wrong length.", visible_length("1234") == 4);
-    mu_assert("visible_length returned wrong length.", visible_length("12\n5\t8") == 8);
+    mu_assert("num_escapes returned wrong number.", num_escapes("1234") == 0);
+    mu_assert("num_escapes returned wrong number.", num_escapes("12\n5\t8") == 2);
     return 0;
 }
 
@@ -100,7 +97,7 @@ static char* test_escape()
 
 static char* all_tests()
 {
-    mu_run_test(test_visible_length);
+    mu_run_test(test_num_escapes);
     mu_run_test(test_escape);
     return 0;
 }
