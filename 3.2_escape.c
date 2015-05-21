@@ -55,7 +55,36 @@ void escape(char* from, char** to)
 void unescape(char* from, char** to)
 {
     int result_length = strlen(from)-num_escapes(from)+1;
-    (void) result_length;
+    char* return_string = malloc(sizeof(char)*result_length);
+
+    int ch, i, k, temp;
+    ch = i = k = 0;
+
+    while((ch = from[i++]) != '\0') {
+        switch(ch) {
+            case '\\':
+                temp = from[i];
+                switch(temp) {
+                    case 'n':
+                        return_string[k++] = '\n';
+                        i++;
+                        break;
+                    case 't':
+                        return_string[k++] = '\t';
+                        i++;
+                        break;
+                    defatult:
+                        return_string[k++] = ch;
+                        break;
+                }
+                break;
+            default:
+                return_string[k++] = ch;
+                break;
+        }
+    }
+    return_string[k] = '\0';
+    *to = return_string;
 }
 
 int main(int argc, char* argv[])
