@@ -26,7 +26,8 @@ int num_escapes(char* string)
 
 void escape(char* from, char** to)
 {
-    char* return_string = malloc(sizeof(char)*num_escapes(from));
+    int string_length = strlen(from)+num_escapes(from)+1;
+    char* return_string = malloc(sizeof(char)*string_length);
 
     int ch = 0;
     int i = 0;
@@ -47,6 +48,7 @@ void escape(char* from, char** to)
                break;
         }
     }
+    return_string[k] = '\0';
     *to = return_string;
 }
 
