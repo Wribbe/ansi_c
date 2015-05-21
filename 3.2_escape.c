@@ -27,9 +27,30 @@ int visible_length(char* string)
     return len;
 }
 
-void printme(char* string)
+void escape(char* from, char** to)
 {
-    printf("ME: %s\n",string);
+    char* return_string = malloc(sizeof(char)*visible_length(from));
+
+    int ch = 0;
+    int i = 0;
+    int k = 0;
+
+    while((ch = from[i++]) != '\0'){
+        switch(ch) {
+            case '\n':
+               return_string[k++] = '\\';
+               return_string[k++] = 'n';
+               break;
+            case '\t':
+               return_string[k++] = '\\';
+               return_string[k++] = 't';
+               break;
+            default:
+               return_string[k++] = ch;
+               break;
+        }
+    }
+    *to = return_string;
 }
 
 int main(int argc, char* argv[])
