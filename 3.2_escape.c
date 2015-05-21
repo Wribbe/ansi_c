@@ -52,6 +52,12 @@ void escape(char* from, char** to)
     *to = return_string;
 }
 
+void unescape(char* from, char** to)
+{
+    int result_length = strlen(from)-num_escapes(from)+1;
+    (void) result_length;
+}
+
 int main(int argc, char* argv[])
 {
     run_tests();
@@ -97,10 +103,21 @@ static char* test_escape()
     return 0;
 }
 
+static char* test_unescape()
+{
+    char* input = "Escape sequence: \\n\\t";
+    char* output;
+    unescape(input, &output);
+    char* correct_output = "Escape sequence: \n\t";
+    mu_assert("unescape did not return correct output.", strcmp(correct_output,output) == 0);
+    return 0;
+}
+
 static char* all_tests()
 {
     mu_run_test(test_num_escapes);
     mu_run_test(test_escape);
+    mu_run_test(test_unescape);
     return 0;
 }
 
