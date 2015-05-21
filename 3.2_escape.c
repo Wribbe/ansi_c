@@ -8,8 +8,23 @@
 
 #include "minunit.h"
 
+int visible_length(char* string)
 {
-    func(string);
+    int ch, i, len;
+    ch = i = len = 0;
+
+    while((ch = string[i++]) != '\0') {
+        switch(ch) {
+            case '\n':
+            case '\t':
+                len += 2;
+                break;
+            default:
+                len += 1;
+                break;
+        }
+    }
+    return len;
 }
 
 void printme(char* string)
@@ -25,7 +40,6 @@ int main(int argc, char* argv[])
         printf("Need att least %d argmuent.\n", num_arguments);
         exit(EXIT_FAILURE);
     }
-    printwithfunc("this is a test", printme);
 }
 
 //------------------------------------------------------------------------------
