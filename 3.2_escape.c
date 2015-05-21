@@ -52,6 +52,7 @@ void run_tests()
 {
     char* result = all_tests();
     if (result !=0) {
+        printf("TEST FAILED\n");
         printf("%s\n", result);
     } else {
         printf("ALL TESTS PASSED\n");
@@ -66,9 +67,20 @@ static char* test_visible_length()
     return 0;
 }
 
+static char* test_escape()
+{
+    char* input = "Escape sequences: \n\t";
+    char* output;
+    escape(input, &output);
+    char* correct_output = "Escape sequences: \\n\\t";
+    mu_assert("escape did not return correct output.", strcmp(correct_output,output) == 0);
+    return 0;
+}
+
 static char* all_tests()
 {
     mu_run_test(test_visible_length);
+    mu_run_test(test_escape);
     return 0;
 }
 
