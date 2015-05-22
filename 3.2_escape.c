@@ -73,7 +73,7 @@ void unescape(char* from, char** to)
                         return_string[k++] = '\t';
                         i++;
                         break;
-                    defatult:
+                    default:
                         return_string[k++] = ch;
                         break;
                 }
