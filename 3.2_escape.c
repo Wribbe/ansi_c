@@ -101,20 +101,6 @@ int main(int argc, char* argv[])
 //--- Tests
 //------------------------------------------------------------------------------
 
-int tests_run = 0;
-
-void run_tests()
-{
-    char* result = all_tests();
-    if (result !=0) {
-        printf("TEST FAILED\n");
-        printf("%s\n", result);
-    } else {
-        printf("ALL TESTS PASSED\n");
-    }
-    printf("Tests run: %d\n", tests_run);
-}
-
 static char* test_num_escapes()
 {
     mu_assert("num_escapes returned wrong number.", num_escapes("1234") == 0);
@@ -149,4 +135,3 @@ static char* all_tests()
     mu_run_test(test_unescape);
     return 0;
 }
-
