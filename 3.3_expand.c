@@ -100,7 +100,9 @@ void expand(char input[], char** result)
     }
     for (i = 0; i < num_tokens; i++) {
         printf("Token %d: %s\n",i,tokens[i]);
+        free(tokens[i]);
     }
+    free(tokens);
     printf("Result: %s\n",*result);
 }
 
@@ -113,93 +115,72 @@ int main(void)
 //-- Tests
 //------------------------------------------------------------------------------
 
+static char* expand_test(char* message, char* input, char* expected)
+{
+    char* result;
+    expand(input, &result);
+    mu_assert(message, strcmp(result, expected) == 0);
+    free(result);
+    return 0;
+}
+
+
 static char* expand_test_number_string()
 {
-    char* input = "1-9";
-    char* result;
-    char* expected = "123456789";
-    expand(input, &result);
-    mu_assert("expand did not produce the string 1 to 9.", strcmp(result, expected) == 0);
+    expand_test("expand did not produce the string 1 to 9.", "1-9", "123456789");
     return 0;
 }
 
 static char* expand_test_alpha_string_lowercase()
 {
-    char* input = "a-z";
-    char* result;
-    char* expected = "abcdefghijklmnopqrstuvwxyz";
-    expand(input, &result);
-    mu_assert("expand did not produce the lower case alphabet.", strcmp(result, expected) == 0);
+    expand_test("expand did not produce the lower case alphabet.", "a-z", "abcdefghijklmnopqrstuvwxyz");
     return 0;
 }
 
 static char* expand_test_alpha_string_uppercase()
 {
-    char* input = "A-Z";
-    char* result;
-    char* expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    expand(input, &result);
-    mu_assert("expand did not produce the upper case alphabet.", strcmp(result, expected) == 0);
+    expand_test("expand did not produce the upper case alphabet.", "A-Z", "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     return 0;
 }
 
 static char* expand_test_alpha_string_mixed_case_lower_first()
 {
-    char* input = "a-Z";
-    char* result;
-    char* expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    expand(input, &result);
-    mu_assert("expand did not produce the mixed case alphabet (lower fist).", strcmp(result, expected) == 0);
+    expand_test("expand did not produce the mixed case alphabet (lower fist).", "a-Z",
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     return 0;
 }
 
 static char* expand_test_alpha_string_mixed_case_upper_first()
 {
-    char* input = "A-z";
-    char* result;
-    char* expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    expand(input, &result);
-    mu_assert("expand did not produce the mixed case alphabet (upper first).", strcmp(result, expected) == 0);
+    expand_test("expand did not produce the mixed case alphabet (upper first).", "A-z",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
     return 0;
 }
 
 static char* expand_test_alphanumeraical_lowercase()
 {
-    char* input = "a-z1-9";
-    char* result;
-    char* expected = "abcdefghijklmnopqrstuvwxyz123456789";
-    expand(input, &result);
-    mu_assert("expand dit not produce the correct lowercase alphanumerical string.", strcmp(result, expected) == 0);
+    expand_test("expand dit not produce the correct lowercase alphanumerical string.", "a-z1-9",
+                "abcdefghijklmnopqrstuvwxyz123456789");
     return 0;
 }
 
 static char* expand_test_alphanumeraical_mixedcase()
 {
-    char* input = "a-Z1-9";
-    char* result;
-    char* expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-    expand(input, &result);
-    mu_assert("expand dit not produce the correct mixedcase alphanumerical string.", strcmp(result, expected) == 0);
+    expand_test("expand dit not produce the correct mixedcase alphanumerical string.", "a-Z1-9",
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789");
     return 0;
 }
 
 static char* expand_test_numericalalpha_mixedcase()
 {
-    char* input = "1-9a-Z";
-    char* result;
-    char* expected = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    expand(input, &result);
-    mu_assert("expand dit not produce the correct mixedcase alphanumerical string.", strcmp(result, expected) == 0);
+    expand_test("expand dit not produce the correct mixedcase alphanumerical string.", "1-9a-Z",
+                "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     return 0;
 }
 
 static char* expand_test_abc()
 {
-    char* input = "a-b-c";
-    char* result;
-    char* expected = "abc";
-    expand(input, &result);
-    mu_assert("expand dit not produce the correct abc string.", strcmp(result, expected) == 0);
+    expand_test("expand dit not produce the correct abc string.", "a-b-c", "abc");
     return 0;
 }
 
