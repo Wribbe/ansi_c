@@ -165,28 +165,28 @@ static char* expand_test_alpha_string_mixed_case_upper_first()
 
 static char* expand_test_alphanumeraical_lowercase()
 {
-    expand_test("expand dit not produce the correct lowercase alphanumerical string.", "a-z1-9",
+    expand_test("expand did not produce the correct lowercase alphanumerical string.", "a-z1-9",
                 "abcdefghijklmnopqrstuvwxyz123456789");
     return 0;
 }
 
 static char* expand_test_alphanumeraical_mixedcase()
 {
-    expand_test("expand dit not produce the correct mixedcase alphanumerical string.", "a-Z1-9",
+    expand_test("expand did not produce the correct mixedcase alphanumerical string.", "a-Z1-9",
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789");
     return 0;
 }
 
 static char* expand_test_numericalalpha_mixedcase()
 {
-    expand_test("expand dit not produce the correct mixedcase alphanumerical string.", "1-9a-Z",
+    expand_test("expand did not produce the correct mixedcase alphanumerical string.", "1-9a-Z",
                 "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     return 0;
 }
 
 static char* expand_test_abc()
 {
-    expand_test("expand dit not produce the correct abc string.", "a-b-c", "abc");
+    expand_test("expand did not produce the correct abc string.", "a-b-c", "abc");
     return 0;
 }
 
