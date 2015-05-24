@@ -21,6 +21,12 @@ STATUS reverse(char input[])
         input[j] = temp;
     }
     return SUCCESS;
+}
+
+STATUS itoa(int n, char s[])
+{
+    return ERROR;
+}
 
 int main(void)
 {
@@ -40,8 +46,28 @@ static char* test_reverse()
     return 0;
 }
 
+static char* test_itoa()
+{
+    int pos_input = 1337;
+    int neg_input = -1337;
+
+    char* pos_expected = "1337";
+    char* neg_expected = "-1337";
+
+    char pos_result[5];
+    char neg_result[5];
+
+    itoa(pos_input, pos_result);
+    itoa(neg_input, neg_result);
+
+    mu_assert("failed to convert positive number.", strcmp(pos_result, pos_expected) == 0);
+    mu_assert("failed to convert negative number.", strcmp(neg_result, neg_expected) == 0);
+    return 0;
+}
+
 static char* all_tests()
 {
     mu_run_test(test_reverse);
+    mu_run_test(test_itoa);
     return 0;
 }
