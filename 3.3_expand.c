@@ -131,6 +131,12 @@ static char* expand_test_number_string()
     return 0;
 }
 
+static char* expand_test_number_string_wrong_order()
+{
+    expand_test("expand did not produce the string 1 to 9.", "9-1", "123456789");
+    return 0;
+}
+
 static char* expand_test_alpha_string_lowercase()
 {
     expand_test("expand did not produce the lower case alphabet.", "a-z", "abcdefghijklmnopqrstuvwxyz");
@@ -187,6 +193,7 @@ static char* expand_test_abc()
 static char* all_tests()
 {
     mu_run_test(expand_test_number_string);
+    mu_run_test(expand_test_number_string_wrong_order);
     mu_run_test(expand_test_alpha_string_lowercase);
     mu_run_test(expand_test_alpha_string_uppercase);
     mu_run_test(expand_test_alpha_string_mixed_case_lower_first);
