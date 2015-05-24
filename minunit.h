@@ -3,6 +3,10 @@
 #define mu_run_test(test) do { char *message = test(); tests_run++; \
                                 if (message) return message; } while (0)
 
+#define debug_printf(fmt, ...) \
+                     do { if (DEBUG) fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__, \
+                                             __LINE__, __func__, __VA_ARGS__); } while (0)
+
 extern int tests_run;
 
 static char* all_tests();
