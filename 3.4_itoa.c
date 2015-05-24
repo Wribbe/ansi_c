@@ -9,6 +9,8 @@
 
 #define DEBUG 1
 
+typedef enum status {ERROR, SUCCESS} STATUS;
+
 STATUS reverse(char input[])
 {
     int temp, i, j;
