@@ -6,11 +6,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "minunit.h"
 
+char* get_split_interval(char start1, char stop1, char start2, char stop2);
+
 char* get_chars(char start, char end)
 {
+    if (start > end) {
+        if(isdigit(start) && isdigit(end)) {
+            return get_chars(end, start);
+        }
+        return get_split_interval(start, 'z', 'A', end);
+    } else if (isupper(start) && islower(end)) {
+        return get_split_interval(start, 'Z', 'a', end);
+    }
     int i, length, k;
     length = (end-start)+2;
     char* return_string;
@@ -22,6 +33,19 @@ char* get_chars(char start, char end)
     return_string[k] = '\0';
 
     return return_string;
+}
+
+char* get_split_interval(char start1, char stop1, char start2, char stop2)
+{
+        char* first = get_chars(start1, stop1);
+        char* second = get_chars(start2, stop2);
+        int length = strlen(first)+strlen(second)+1;
+        char* return_string = malloc(sizeof(char)*length);
+        strcat(return_string, first);
+        strcat(return_string, second);
+        free(first);
+        free(second);
+        return return_string;
 }
 
 int parse_input(char input[], char** tokens[])
@@ -61,15 +85,23 @@ int parse_input(char input[], char** tokens[])
 
 void expand(char input[], char** result)
 {
-    int num_tokens;
+    int i, num_tokens;
     char** tokens;
+
     num_tokens = parse_input(input, &tokens);
-    *result = get_chars('1','9');
-    printf("num_tokens: %d\n",num_tokens);
-    int i;
-    for (i = 0; i<num_tokens; i++) {
-        printf("token#%d: %s\n",i,tokens[i]);
+    if (num_tokens == 3) {
+        if (strlen(tokens[1]) > 1) {
+            *result = get_split_interval(tokens[0][0], tokens[1][0], tokens[1][1], tokens[2][0]);
+        } else {
+            *result = get_split_interval(tokens[0][0], tokens[1][0], tokens[1][0]+1, tokens[2][0]);
+        }
+    } else {
+        *result = get_chars(tokens[0][0],tokens[1][0]);
     }
+    for (i = 0; i < num_tokens; i++) {
+        printf("Token %d: %s\n",i,tokens[i]);
+    }
+    printf("Result: %s\n",*result);
 }
 
 int main(void)
@@ -105,7 +137,7 @@ static char* expand_test_alpha_string_uppercase()
 {
     char* input = "A-Z";
     char* result;
-    char* expected = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
+    char* expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     expand(input, &result);
     mu_assert("expand did not produce the upper case alphabet.", strcmp(result, expected) == 0);
     return 0;
@@ -115,7 +147,7 @@ static char* expand_test_alpha_string_mixed_case_lower_first()
 {
     char* input = "a-Z";
     char* result;
-    char* expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ";
+    char* expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     expand(input, &result);
     mu_assert("expand did not produce the mixed case alphabet (lower fist).", strcmp(result, expected) == 0);
     return 0;
@@ -125,7 +157,7 @@ static char* expand_test_alpha_string_mixed_case_upper_first()
 {
     char* input = "A-z";
     char* result;
-    char* expected = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz";
+    char* expected = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     expand(input, &result);
     mu_assert("expand did not produce the mixed case alphabet (upper first).", strcmp(result, expected) == 0);
     return 0;
@@ -141,6 +173,36 @@ static char* expand_test_alphanumeraical_lowercase()
     return 0;
 }
 
+static char* expand_test_alphanumeraical_mixedcase()
+{
+    char* input = "a-Z1-9";
+    char* result;
+    char* expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+    expand(input, &result);
+    mu_assert("expand dit not produce the correct mixedcase alphanumerical string.", strcmp(result, expected) == 0);
+    return 0;
+}
+
+static char* expand_test_numericalalpha_mixedcase()
+{
+    char* input = "1-9a-Z";
+    char* result;
+    char* expected = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    expand(input, &result);
+    mu_assert("expand dit not produce the correct mixedcase alphanumerical string.", strcmp(result, expected) == 0);
+    return 0;
+}
+
+static char* expand_test_abc()
+{
+    char* input = "a-b-c";
+    char* result;
+    char* expected = "abc";
+    expand(input, &result);
+    mu_assert("expand dit not produce the correct abc string.", strcmp(result, expected) == 0);
+    return 0;
+}
+
 static char* all_tests()
 {
     mu_run_test(expand_test_number_string);
@@ -149,5 +211,8 @@ static char* all_tests()
     mu_run_test(expand_test_alpha_string_mixed_case_lower_first);
     mu_run_test(expand_test_alpha_string_mixed_case_upper_first);
     mu_run_test(expand_test_alphanumeraical_lowercase);
+    mu_run_test(expand_test_alphanumeraical_mixedcase);
+    mu_run_test(expand_test_numericalalpha_mixedcase);
+    mu_run_test(expand_test_abc);
     return 0;
 }
