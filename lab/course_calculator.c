@@ -16,6 +16,9 @@ float get_number(char string[])
     k = 0;
 
     while((ch = string[i++]) != '\n') {
+        if (ch == '#') {
+            break;
+        }
         if (semicolon) {
             if (!isspace(ch)) {
                 number[k++] = ch;
@@ -36,6 +39,13 @@ float get_number(char string[])
     }
 }
 
+void reset(char string[], int len)
+{
+    for(int i = 0; i < len; i++) {
+        string[i] = ' ';
+    }
+}
+
 int main()
 {
     int ch, i;
@@ -47,6 +57,7 @@ int main()
             current_line[i+1] = '\0';
             if (current_line[0] != '#') {
                 total += get_number(current_line);
+                reset(current_line, 100);
             }
             i = 0;
             while(ch != '\n') {
@@ -56,5 +67,5 @@ int main()
             current_line[i++] = ch;
         }
     }
-    printf("Current total: %f\n",total);
+    printf("Current total: %2.2f\n",total);
 }
