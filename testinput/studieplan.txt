@@ -1,0 +1,178 @@
+##Överblick
+#
+#  #lp1 2015:
+#    Realtidsprogramering:           6       #lp 1+2   G2  Obligatorisk    #2015
+#    Datorgrafik:                    7.5     #lp 1     G2  Bilder & Grafik #2015
+#    C-programmering:                3       #lp 1     G1  Inbyggda System #2015
+#
+#  #lp2 2015:
+#    Högpresterande datorgrafik:     7.5     #lp 2     A   Bilder & Grafik #2015
+#    Funktionsprogramering:          7.5     #lp 2     A   Programvara     #2015
+#
+#  #lp3 2016:
+#    Datorseende:                    7.5     #lp 3     A   Bilder & Grafik #2016
+#    Virtual Reality i teo/prak:     7.5     #lp 3/4   G2  Bilder & Grafik #2016
+#
+#  #lp4 2016:
+
+##Överblick (Bild & Grafik):
+#
+#  #lp1 2015:
+#    Datorkomunikation:                4.5     #lp 1     G2  Obligatorisk
+#    Datorgrafik:                      7.5     #lp 1     G2  Bilder & Grafik #2015
+#    Kompilatorer:                     7.5     #lp 1     A   Inbyggda System #2017?
+#
+#  #lp2 2015:
+#    Högpresterande datorgrafik:       7.5     #lp 2     A   Bilder & Grafik #2015
+#    Industriell Ekonomi(Omreg):       6       #lp 2     G1
+#
+#  #lp3 2016:
+#    Datorseende:                      7.5     #lp 3     A   Bilder & Grafik #2016
+#
+#  #lp4 2016:
+#    Numerisk analys:                  6       #lp 4     G2  Obligatorisk
+#    Ingengörsprocc - metodik:         5       #lp 4     G1  Obligatorisk
+#    Ingengörsprocc - samhäll:         4       #lp 4     G1  Obligatorisk
+#    Kösystem:                         4.5     #lp 4     G2  Obligatorisk
+#    #Total: 19.5
+#
+#  #lp1 2016:
+#    Realtidsprogramering:             6       #lp 1/2   G2  Obligatorisk
+#    Interaktionsdesign:               7.5     #lp 1     A   Bilder & Grafik #2016
+#
+#  #lp2 2016:
+#
+#  #lp3 2017:
+#    Virtual Reality i teo/prak:       7.5     #lp 3/4   G2  Bilder & Grafik #2016
+#
+#  #lp4 2017:
+#    Avancerad Interaktionsdesign:     7.5     #lp 4     A   Bilder & Grafik #2016
+#
+#  #lp1 2017:
+#    Bildanalys:                       7.5     #lp 1     A   Bilder & Grafik #2016
+#
+#  #lp2 2017:
+#    Optimiserande Kompilatorer:       7.5     #lp 1     A   Inbyggda System #2017?
+
+#Överblick (Programvara):
+
+  #Sommaren 2015:
+    #(Tentera) Digitalteknik
+
+  #lp1 2015:
+    Datorkomunikation:                4.5     #lp 1     G2  Obligatorisk
+    Datorgrafik:                      7.5     #lp 1     G2  Bilder & Grafik #2015
+    Kompilatorer:                     7.5     #lp 1     A   Programvara
+
+  #lp2 2015:
+    Högpresterande datorgrafik:       7.5     #lp 2     A   Bilder & Grafik #2015
+    Funktionsprogrammering:           7.5     #lp 2     A   Programvara
+    #(Tentera) Elen                   8
+
+  #lp3 2016:
+    Programvarutestning:              7.5     #lp 3     A   Software Engineering
+    Tillämpad artificiell int:        7.5     #lp 3     G2  Programvara
+    (Tentera) C-Programering:         3       #         G1  Programvara
+
+  #lp4 2016:
+    Numerisk analys:                  6       #lp 4     G2  Obligatorisk
+    Ingengörsprocc - metodik:         5       #lp 4     G1  Obligatorisk
+    Kösystem:                         4.5     #lp 4     G2  Obligatorisk
+
+  #lp1 2016:
+    Realtidsprogramering:             6       #lp 1/2   G2  Obligatorisk
+    Språkteknologi:                   7.5     #lp 1     A   Programvara
+    Multicoreprogrammering:           6       #lp 1     A   Programvara
+
+  #lp2 2016:
+    Simuleringsverktyg:               7.5     #lp 2     A   Valfria
+    Konfidurationshantering:          7.5     #lp 2     A   Software Engineering
+
+  #lp3 2017:
+    C++ - programmering:              7.5     #lp 3/4   G2  Programvara
+    Linjär och kombinatorisk opti:    6       #lp 3     G2  Programvara
+
+  #lp4 2017:
+    Algoritmimplementering:           5       #lp 4     G2  Programvara
+    Ingengörsprocc - samhäll:         4       #lp 4     G1  Obligatorisk
+    Operativsystem:                   7.5     #lp 4     G2  Inbyggda system
+
+
+##30hp A-nivå för Programvara:
+#
+#  XKompilatorer:                     7.5     #lp 1     A   Programvara
+#  XMulticoreprogrammering            6       #lp 1     A   Programvara
+#  XFunktionsprogrammering:           7.5     #lp 2     A   Programvara
+#  xSpråkteknologi                    7.5     #lp 1     A   Programvara
+#
+#15hp resterand fylla kravet för programvara
+#
+#  XC-programmering                   3       #lp 1     G1  Programvara
+#  XC++ - programmering               7.5     #lp 3/4   G2  Programvara
+#  XAlgoritmimplementering            5       #lp 4     G2  Programvara
+#  XLinjär och kombinatorisk opti.    6       #lp 3     G2  Programvara
+#
+##Intressanta kurser per läsperoid:
+#
+#  #Bildanalys:                       7.5     #lp 1     A   Bilder & Grafik #2016
+#  #Interaktionsdesign:               7.5     #lp 1     A   Bilder & Grafik #2016
+#  XKompilatorer:                     7.5     #lp 1     A   Programvara
+#  #Optimiserande Kompilatorer:       7.5     #lp 1     A   Programvara
+#  #C-programmering                   3       #lp 1     G1  Programvara
+#  #Avancerad datasäkerhet            7.5     #lp 1     A   Software Engineering
+#  #Numeriska metoder för datorgrafik 6       #lp 1     A   Bilder & Grafik
+#  #Avancerade Algoritmer             7.5     #lp 1     A   Programvara
+#  #Språkteknologi                    7.5     #lp 1     A   Programvara
+#  XMulticoreprogrammering            6       #lp 1     A   Programvara
+#
+#  XHögpresterande datorgrafik:       7.5     #lp 2     A   Bilder & Grafik #2015
+#  #Kodningsteknik:                   7.5     #lp 2     A   Kommunikationssystem
+#  XFunktionsprogrammering:           7.5     #lp 2     A   Programvara
+#  #Datorakitektur:                   7.5     #lp 2     G2  Inbyggda system
+#  #Kryptoteknik:                     7.5     #lp 2     A   Kommunikationssystem
+#  XKonfidurationshantering           7.5     #lp 2     A   Software Engineering
+#  XSimuleringsverktyg                7.5     #lp 2     A   Valfria
+#
+#  #Datorseende:                      7.5     #lp 3     A   Bilder & Grafik #2016
+#  #Virtual Reality i teo/prak:       7.5     #lp 3/4   G2  Bilder & Grafik #2016
+#  #Internet Inuti                    7.5     #lp 3     A   Inbyggda System
+#  XLinjär och kombinatorisk opti.    6       #lp 3     G2  Programvara
+#  XTillämpad artificiell int.        7.5     #lp 3     G2  Programvara
+#  XC++ - programmering               7.5     #lp 3/4   G2  Programvara
+#  #Databasteknik                     7.5     #lp 3/4   G2  Programvara
+#  XProgramvarutestning               7.5     #lp 3     A   Software Engineering
+#  #ndustriell ekonomi allmän         9       #lp 3     G1  Valfri
+#  #ndustriell ekonomi forts          6       #lp 3     G2  Valfri
+#
+#  #Simulering:                       7.5     #lp 4     A   Kommunikationssystem #2016
+#  XOperativsystem:                   7.5     #lp 4     G2  Inbyggda system
+#  XAlgoritmimplementering            5       #lp 4     G2  Programvara
+#  #Försöksplanering                  7.5     #lp 4     G2  Valfria
+#  #Nätverskprogramering              7.5     #lp 4     G2  Valfria
+#
+##30hp A-nivå för Bilder & Grafik:
+#
+#  XHögpresterande datorgrafik:       7.5     #lp 2     A   Bilder & Grafik #2015
+#  XBildanalys:                       7.5     #lp 1     A   Bilder & Grafik #2016
+#  XInteraktionsdesign:               7.5     #lp 1     A   Bilder & Grafik #2016
+#  XDatorseende:                      7.5     #lp 3     A   Bilder & Grafik #2016
+#
+##15hp utöver A-nivå för att fylla kravet för spec:
+#
+#  XVirtual Reality i teo/prak:       7.5     #lp 3/4   G2  Bilder & Grafik #2016
+#  XAvancerad Interaktionsdesign:     7.5     #lp 4     A   Bilder & Grafik #2016
+#
+##Kvarvarande obligatoriska
+#
+#  (Tenta)Elektronik:                      8       #lp 2-4   G1  Obligatorisk
+#  (Tenta)Digitalteknik
+#
+##Schemalagda obligatoriska
+#
+#  Datorkomunikation:               4.5     #lp 1     G2  Obligatorisk
+#  Realtidsprogramering:            6       #lp 1+2   G2  Obligatorisk
+#
+#  Numerisk analys:                 6       #lp 4     G2  Obligatorisk
+#  Ingengörsprocc - metodik:        5       #lp 4     G1  Obligatorisk
+#  Ingengörsprocc - samhäll:        4       #lp 4     G1  Obligatorisk
+#  Kösystem:                        4.5     #lp 4     G2  Obligatorisk
