@@ -23,31 +23,31 @@ STATUS reverse(char input[])
     return SUCCESS;
 }
 
-STATUS itoa(int n, char string[])
+STATUS itob(int n, char result[], int base)
 {
     int sign, ch, i;
     sign = n;
     i = 0;
 
     do {
-        ch = abs(n % 10) + '0';
-        n = n/10;
-        string[i++] = ch;
+        ch = abs(n % base) + '0';
+        n = n/base;
+        result[i++] = ch;
     } while (n != 0);
 
     if (sign < 0) {
-        string[i++] = '-';
+        result[i++] = '-';
     }
 
-    string[i] = '\0'; // The reversal only goes to i-1.
-    reverse(string);
+    result[i] = '\0'; // The reversal only goes to i-1.
+    reverse(result);
 
     return SUCCESS;
 }
 
-STATUS itob(int n, char result[], int base)
+STATUS itoa(int n, char result[])
 {
-    return ERROR;
+    return itob(n, result, 10);
 }
 
 int main(void)
@@ -82,7 +82,6 @@ static char* test_itoa()
     itoa(pos_input, pos_result);
     itoa(neg_input, neg_result);
 
-    printf("pos: %s, neg: %s\n",pos_result, neg_result);
     mu_assert("failed to convert positive number.", strcmp(pos_result, pos_expected) == 0);
     mu_assert("failed to convert negative number.", strcmp(neg_result, neg_expected) == 0);
     return 0;
