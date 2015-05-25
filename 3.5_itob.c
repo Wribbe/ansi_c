@@ -32,6 +32,9 @@ STATUS itob(int n, char result[], int base)
     do {
         ch = abs(n % base) + '0';
         n = n/base;
+        if (ch > '9') {
+            ch = 'A'+(ch-('9'+1));
+        }
         result[i++] = ch;
     } while (n != 0);
 
