@@ -124,4 +124,3 @@ static char* all_tests()
     mu_run_test(test_itob_hexa);
     return 0;
 }
-

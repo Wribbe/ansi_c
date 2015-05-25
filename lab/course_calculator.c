@@ -28,8 +28,12 @@ float get_number(char string[])
             continue;
         }
     }
-    number[k] = '\0';
-    return strtof(number, NULL);
+    if (strlen(number) == 0) {
+        return 0;
+    } else {
+        number[k] = '\0';
+        return strtof(number, NULL);
+    }
 }
 
 int main()
@@ -39,10 +43,15 @@ int main()
     i = 0;
     char current_line[100];
     while ((ch = getchar()) != EOF) {
-        if (ch == '\n') {
+        if (ch == '\n' || ch == '#') {
             current_line[i+1] = '\0';
-            total += get_number(current_line);
+            if (current_line[0] != '#') {
+                total += get_number(current_line);
+            }
             i = 0;
+            while(ch != '\n') {
+                ch = getchar();
+            }
         } else {
             current_line[i++] = ch;
         }
