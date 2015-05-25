@@ -39,7 +39,7 @@ STATUS itoa(int n, char string[])
         string[i++] = '-';
     }
 
-    string[i] = '\0';
+    string[i] = '\0'; // The reversal only goes to i-1.
     reverse(string);
 
     return SUCCESS;
