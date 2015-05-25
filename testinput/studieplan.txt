@@ -56,6 +56,15 @@
 
 #Överblick (Programvara):
 
+# Vill ha med:
+  #2016-2017:
+    #Avancerade Algoritmer             7.5     #lp ?     A   Programvara
+    #Optimiserande Kompilatorer:       7.5     #lp 1     A   Programvara
+    #Interaktionsdesign:               7.5     #lp 1     A   Bilder & Grafik #2016
+    #Avancerad Interaktionsdesign:     7.5     #lp 4     A   Bilder & Grafik #2016
+    #EDAN30 - Photorealistic Computer Grapihics (2016?)
+    #EDA101 - Advanced Shading and Rendering (2017?)
+
   #Sommaren 2015:
     #(Tentera) Digitalteknik
 
@@ -92,7 +101,7 @@
     C++ - programmering:              7.5     #lp 3/4   G2  Programvara
     Linjär och kombinatorisk opti:    6       #lp 3     G2  Programvara
 
-  #lp4 2017:
+  #lp4 2017: NO FUNDS! (CSN tar slut..)
     Algoritmimplementering:           5       #lp 4     G2  Programvara
     Ingengörsprocc - samhäll:         4       #lp 4     G1  Obligatorisk
     Operativsystem:                   7.5     #lp 4     G2  Inbyggda system
@@ -118,7 +127,7 @@
 #  #Interaktionsdesign:               7.5     #lp 1     A   Bilder & Grafik #2016
 #  XKompilatorer:                     7.5     #lp 1     A   Programvara
 #  #Optimiserande Kompilatorer:       7.5     #lp 1     A   Programvara
-#  #C-programmering                   3       #lp 1     G1  Programvara
+#  XC-programmering                   3       #lp 1     G1  Programvara
 #  #Avancerad datasäkerhet            7.5     #lp 1     A   Software Engineering
 #  #Numeriska metoder för datorgrafik 6       #lp 1     A   Bilder & Grafik
 #  #Avancerade Algoritmer             7.5     #lp 1     A   Programvara
@@ -149,6 +158,7 @@
 #  XAlgoritmimplementering            5       #lp 4     G2  Programvara
 #  #Försöksplanering                  7.5     #lp 4     G2  Valfria
 #  #Nätverskprogramering              7.5     #lp 4     G2  Valfria
+#  #Avancerad Interaktionsdesign:     7.5     #lp 4     A   Bilder & Grafik #2016
 #
 ##30hp A-nivå för Bilder & Grafik:
 #
