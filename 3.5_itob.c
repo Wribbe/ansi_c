@@ -45,6 +45,11 @@ STATUS itoa(int n, char string[])
     return SUCCESS;
 }
 
+STATUS itob(int n, char result[], int base)
+{
+    return ERROR;
+}
+
 int main(void)
 {
     run_tests();
@@ -83,10 +88,38 @@ static char* test_itoa()
     return 0;
 }
 
+static char* test_itob_binary()
+{
+    int input = 3;
+    int base = 2;
+
+    char* expected = "11";
+    char result[3];
+
+    itob(input, result, base);
+    mu_assert("itob did not do the correct binary conversion.", strcmp(result, expected) == 0);
+    return 0;
+}
+
+static char* test_itob_hexa()
+{
+    int input = 90;
+    int base = 16;
+
+    char* expected = "5A";
+    char result[3];
+
+    itob(input, result, base);
+    mu_assert("itob did not do the correct hexadecimal conversion.", strcmp(result, expected) == 0);
+    return 0;
+}
+
 static char* all_tests()
 {
     mu_run_test(test_reverse);
     mu_run_test(test_itoa);
+    mu_run_test(test_itob_binary);
+    mu_run_test(test_itob_hexa);
     return 0;
 }
 
