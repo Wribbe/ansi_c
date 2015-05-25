@@ -69,14 +69,14 @@
     #(Tentera) Digitalteknik
 
   #lp1 2015:
-    Datorkomunikation:                4.5     #lp 1     G2  Obligatorisk
-    Datorgrafik:                      7.5     #lp 1     G2  Bilder & Grafik #2015
-    Kompilatorer:                     7.5     #lp 1     A   Programvara
+    ETS052 Datorkomunikation:                4.5     #lp 1     G2  Obligatorisk
+    EDA221 Datorgrafik:                      7.5     #lp 1     G2  Bilder & Grafik
+    EDAN20 Språkteknologi:                   7.5     #lp 1     A   Programvara
 
   #lp2 2015:
     Högpresterande datorgrafik:       7.5     #lp 2     A   Bilder & Grafik #2015
     Funktionsprogrammering:           7.5     #lp 2     A   Programvara
-    #(Tentera) Elen                   8
+    #(Tentera) Elen                   (8)
 
   #lp3 2016:
     Programvarutestning:              7.5     #lp 3     A   Software Engineering
@@ -90,7 +90,7 @@
 
   #lp1 2016:
     Realtidsprogramering:             6       #lp 1/2   G2  Obligatorisk
-    Språkteknologi:                   7.5     #lp 1     A   Programvara
+    Kompilatorer:                     7.5     #lp 1     A   Programvara
     Multicoreprogrammering:           6       #lp 1     A   Programvara
 
   #lp2 2016:
